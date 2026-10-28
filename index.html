@@ -1,0 +1,453 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Shahd Ali's Project Coordination Portfolio — project planning, task tracking, content coordination and operations support.">
+<title>Shahd Ali | Project Coordination Portfolio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --cream:#f8f3eb;
+  --paper:#fffdf9;
+  --wine:#70283c;
+  --dark:#4b1828;
+  --rose:#ead8dc;
+  --ink:#292326;
+  --muted:#766b6d;
+  --line:#e7dcd6;
+  --green:#42634a;
+  --gold:#87601f;
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  margin:0;
+  background:var(--cream);
+  color:var(--ink);
+  font-family:'DM Sans',sans-serif;
+  line-height:1.65;
+}
+a { color:inherit; text-decoration:none; }
+button,select,input { font:inherit; }
+button { cursor:pointer; }
+.wrap { width:min(1120px,92%); margin:auto; }
+.serif { font-family:'Playfair Display',serif; }
+.eyebrow {
+  text-transform:uppercase;
+  letter-spacing:.16em;
+  color:var(--wine);
+  font-size:.73rem;
+  font-weight:700;
+}
+.muted,.small { color:var(--muted); }
+.small { font-size:.8rem; }
+nav {
+  position:sticky; top:0; z-index:10;
+  background:rgba(248,243,235,.95);
+  border-bottom:1px solid var(--line);
+  backdrop-filter:blur(12px);
+}
+.nav-inner {
+  min-height:74px; display:flex;
+  align-items:center; justify-content:space-between; gap:20px;
+}
+.brand { font:600 1.2rem 'Playfair Display',serif; color:var(--dark); }
+.brand small {
+  display:block; font:500 .63rem 'DM Sans',sans-serif;
+  letter-spacing:.12em; text-transform:uppercase; color:var(--muted);
+}
+.nav-links { display:flex; gap:22px; font-size:.85rem; color:var(--muted); }
+.nav-links a:hover { color:var(--wine); }
+.btn {
+  display:inline-block; padding:11px 17px;
+  background:var(--wine); color:white;
+  border:1px solid var(--wine); border-radius:4px;
+  font-size:.86rem; font-weight:600;
+}
+.btn:hover { background:var(--dark); }
+.btn-outline { background:transparent; color:var(--wine); }
+.btn-light { background:var(--cream); color:var(--dark); border-color:var(--cream); }
+.hero {
+  padding:82px 0; display:grid;
+  grid-template-columns:1.25fr .75fr; gap:45px; align-items:center;
+}
+h1 {
+  font:600 clamp(3rem,7vw,5.5rem)/1.04 'Playfair Display',serif;
+  letter-spacing:-.04em; margin:18px 0;
+}
+h1 em { color:var(--wine); }
+.hero p { max-width:620px; color:var(--muted); }
+.actions { display:flex; gap:10px; flex-wrap:wrap; margin-top:25px; }
+.tags { display:flex; gap:8px; flex-wrap:wrap; margin-top:22px; }
+.tag {
+  border:1px solid var(--line); padding:6px 10px;
+  font-size:.76rem; color:var(--muted); background:var(--paper);
+}
+.hero-panel {
+  background:var(--dark); color:#fff8f0; padding:30px;
+  border-radius:5px;
+}
+.hero-panel h2 { font:500 1.8rem 'Playfair Display',serif; }
+.hero-panel p { color:#e6d6d9; font-size:.9rem; }
+.panel-row {
+  border-top:1px solid #795060; padding-top:12px;
+  margin-top:18px; display:flex; justify-content:space-between;
+  gap:12px; font-size:.82rem;
+}
+section { padding:66px 0; }
+.section-title { margin-bottom:26px; }
+.section-title h2 { font:600 clamp(2rem,4vw,3rem) 'Playfair Display',serif; margin:7px 0; }
+.section-title p { color:var(--muted); max-width:680px; }
+.soft { background:#f2e9e1; }
+.grid2 { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
+.grid3 { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:15px; }
+.card {
+  padding:25px; background:var(--paper);
+  border:1px solid var(--line); border-radius:5px;
+}
+.card h3 { font:600 1.55rem 'Playfair Display',serif; margin:12px 0 8px; }
+.card p { color:var(--muted); font-size:.9rem; }
+.card-meta {
+  display:flex; flex-wrap:wrap; gap:14px;
+  padding-top:15px; margin-top:18px; border-top:1px solid var(--line);
+  color:var(--muted); font-size:.78rem;
+}
+.badge {
+  display:inline-block; padding:4px 9px; border-radius:20px;
+  font-size:.72rem; font-weight:700; background:#f3e7e8; color:var(--wine);
+}
+.workspace {
+  background:var(--paper); border:1px solid var(--line);
+  border-radius:5px; overflow:hidden;
+}
+.workspace-head {
+  padding:23px; background:#fdf8f3; border-bottom:1px solid var(--line);
+  display:flex; justify-content:space-between; align-items:center; gap:15px; flex-wrap:wrap;
+}
+.workspace-head h3 { font:600 1.6rem 'Playfair Display',serif; margin:4px 0; }
+select,input {
+  padding:10px 12px; border:1px solid var(--line);
+  background:white; border-radius:4px; color:var(--ink);
+}
+.tabs { display:flex; gap:4px; padding:12px 18px; flex-wrap:wrap; border-bottom:1px solid var(--line); }
+.tab { border:0; background:transparent; color:var(--muted); padding:10px 13px; border-radius:4px; font-weight:600; font-size:.82rem; }
+.tab.active { background:var(--wine); color:white; }
+.content { padding:22px; }
+.toolbar { display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:15px; }
+.table-wrap { overflow-x:auto; border:1px solid var(--line); border-radius:4px; }
+table { width:100%; min-width:750px; border-collapse:collapse; font-size:.81rem; }
+th,td { text-align:left; padding:12px; border-bottom:1px solid var(--line); vertical-align:top; }
+th { background:#faf5f0; color:var(--muted); font-size:.7rem; text-transform:uppercase; letter-spacing:.05em; }
+tbody tr:last-child td { border-bottom:0; }
+.pill { display:inline-block; padding:4px 8px; border-radius:20px; font-size:.7rem; font-weight:700; white-space:nowrap; }
+.completed { color:var(--green); background:#e5eee6; }
+.in-progress { color:var(--gold); background:#f6ead5; }
+.not-started { color:#77696a; background:#f0e9e9; }
+.progress { height:6px; background:#eee4e0; border-radius:20px; overflow:hidden; margin-top:6px; min-width:65px; }
+.progress span { display:block; height:100%; background:var(--wine); }
+.stats { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; }
+.stat { padding:16px; border:1px solid var(--line); background:white; border-radius:4px; }
+.stat span { display:block; color:var(--muted); font-size:.76rem; }
+.stat strong { display:block; font:600 1.8rem 'Playfair Display',serif; margin:5px 0; }
+.idea h4 { margin:8px 0; font:600 1.15rem 'Playfair Display',serif; }
+.idea p { color:var(--muted); font-size:.85rem; }
+.timeline { border-left:1px solid #d9c2c8; padding-left:22px; margin-left:8px; }
+.milestone { position:relative; padding:0 0 24px; }
+.milestone:before {
+  content:""; position:absolute; left:-29px; top:7px;
+  width:10px; height:10px; border-radius:50%;
+  background:var(--wine); border:3px solid var(--rose);
+}
+.milestone h4 { margin:4px 0; }
+.note { padding:13px 15px; background:#f6eee4; border-left:3px solid #a77735; font-size:.82rem; color:#6c5b4e; margin-top:18px; }
+.case-study {
+  display:grid; grid-template-columns:.75fr 1.25fr; gap:25px;
+  background:var(--paper); border:1px solid var(--line);
+  padding:26px; margin-bottom:17px;
+}
+.case-study h3 { font:600 1.7rem 'Playfair Display',serif; margin:6px 0; }
+.case-study p { color:var(--muted); font-size:.89rem; }
+.case-points { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+.case-point { background:#faf4ef; padding:13px; }
+.case-point strong { display:block; color:var(--wine); font-size:.78rem; margin-bottom:5px; }
+.case-point span { font-size:.82rem; color:var(--muted); }
+.contact {
+  background:var(--dark); color:#fff8f0; border-radius:5px;
+  padding:36px; display:flex; justify-content:space-between; align-items:center; gap:25px;
+}
+.contact h2 { font:600 clamp(2rem,4vw,3rem) 'Playfair Display',serif; margin:5px 0; }
+.contact p { color:#e6d6d9; max-width:600px; }
+footer { padding:24px 0; display:flex; justify-content:space-between; gap:15px; flex-wrap:wrap; color:var(--muted); font-size:.78rem; }
+@media(max-width:760px) {
+ .nav-links { display:none; }
+ .hero { grid-template-columns:1fr; padding:55px 0; }
+ .grid2,.case-study { grid-template-columns:1fr; }
+ .grid3 { grid-template-columns:repeat(2,minmax(0,1fr)); }
+ .stats { grid-template-columns:repeat(2,minmax(0,1fr)); }
+ .contact { flex-direction:column; align-items:flex-start; padding:25px; }
+}
+@media(max-width:480px) {
+ .grid3,.case-points { grid-template-columns:1fr; }
+ .content { padding:13px; }
+}
+</style>
+</head>
+
+<body>
+<nav>
+ <div class="wrap nav-inner">
+  <a class="brand" href="#home">Shahd Ali<small>Project Coordination Portfolio</small></a>
+  <div class="nav-links">
+   <a href="#projects">Projects</a><a href="#tracker">Tracker</a>
+   <a href="#case-studies">Case Studies</a><a href="#about">About</a>
+  </div>
+  <a class="btn" href="mailto:shhdai563@gmail.com?subject=Project%20Coordination%20Opportunity">Contact ↗</a>
+ </div>
+</nav>
+
+<main>
+<section class="wrap hero" id="home">
+ <div>
+  <div class="eyebrow">Planning · Coordination · Operations</div>
+  <h1>Turning moving parts into <em>clear plans.</em></h1>
+  <p>I’m Shahd, a Business Administration student building practical experience in project coordination, task tracking, content operations, and team organization. I enjoy turning ideas into structured plans with clear priorities, responsibilities, and next steps.</p>
+  <div class="actions">
+   <a class="btn" href="#projects">Explore my work ↓</a>
+   <a class="btn btn-outline" href="mailto:shhdai563@gmail.com?subject=Project%20Coordination%20Opportunity">Email me</a>
+  </div>
+  <div class="tags"><span class="tag">Project Planning</span><span class="tag">Task Tracking</span><span class="tag">Google Sheets</span><span class="tag">Content Coordination</span></div>
+ </div>
+ <aside class="hero-panel">
+  <div class="eyebrow" style="color:#e9cbd3">My approach</div>
+  <h2>Organized work.<br>Visible progress.</h2>
+  <p>Simple systems that help teams understand what needs to happen, who owns it, and what comes next.</p>
+  <div class="panel-row"><span>Focus</span><strong>Project Coordination</strong></div>
+  <div class="panel-row"><span>Tools</span><strong>Sheets · Excel · Docs</strong></div>
+  <div class="panel-row"><span>Approach</span><strong>Clear & practical</strong></div>
+ </aside>
+</section>
+
+<section id="projects">
+ <div class="wrap">
+  <div class="section-title"><div class="eyebrow">Selected work</div><h2>Projects & practice</h2><p>Examples of planning, task coordination, content organization, and progress reporting.</p></div>
+  <div class="grid2">
+   <article class="card">
+    <div class="eyebrow">Project 01 · Planning case study</div>
+    <h3>Banana Peal</h3>
+    <p>A project-planning demonstration built around a task tracker, priorities, ownership, timeline, and dashboard.</p>
+    <div class="card-meta"><span>Task planning</span><span>Status tracking</span><span>Reporting</span></div>
+    <p class="small">This is a planning case study. Project-specific details and dates must be verified before presenting it as completed client work.</p>
+    <button class="btn" onclick="openProject('banana')">View tracker ↗</button>
+   </article>
+   <article class="card">
+    <div class="eyebrow">Project 02 · Brand coordination</div>
+    <h3>Abaya Brand — Content & Launch</h3>
+    <p>Organizing content ideas, video production steps, review points, posting tasks, and early engagement metrics for a small abaya brand.</p>
+    <div class="card-meta"><span>Content calendar</span><span>Coordination</span><span>Performance notes</span></div>
+    <button class="btn" onclick="openProject('abaya')">View tracker ↗</button>
+   </article>
+  </div>
+ </div>
+</section>
+
+<section id="tracker" class="soft">
+ <div class="wrap">
+  <div class="section-title"><div class="eyebrow">Interactive workspace</div><h2>Project tracker</h2><p>Switch projects and views. Dashboard figures are calculated automatically from each task list.</p></div>
+  <div class="workspace">
+   <div class="workspace-head">
+    <div><div class="eyebrow">Project workspace</div><h3 id="projectTitle">Banana Peal</h3><div class="small" id="projectSubtitle"></div></div>
+    <select id="projectSelect" onchange="openProject(this.value)" aria-label="Choose project">
+     <option value="banana">Banana Peal</option><option value="abaya">Abaya Brand</option>
+    </select>
+   </div>
+   <div class="tabs">
+    <button class="tab active" data-view="tasks" onclick="showView('tasks')">Task Tracker</button>
+    <button class="tab" data-view="ideas" onclick="showView('ideas')">Content Ideas</button>
+    <button class="tab" data-view="timeline" onclick="showView('timeline')">Timeline</button>
+    <button class="tab" data-view="dashboard" onclick="showView('dashboard')">Dashboard</button>
+   </div>
+   <div class="content" id="viewContent"></div>
+  </div>
+  <div class="note">Important: Banana Peal contains illustrative entries pending confirmation. The tracker is a front-end portfolio demo; it does not sync with Google Sheets or save edits to a server.</div>
+ </div>
+</section>
+
+<section id="case-studies">
+ <div class="wrap">
+  <div class="section-title"><div class="eyebrow">Project stories</div><h2>Case studies</h2><p>Clear descriptions of the work, contribution, and next steps, without claiming unverified results.</p></div>
+
+  <article class="case-study">
+   <div><div class="eyebrow">Case study 01</div><h3>Banana Peal</h3><p>Project planning and task visibility</p><div class="tags"><span class="tag">Planning</span><span class="tag">Ownership</span><span class="tag">Reporting</span></div></div>
+   <div>
+    <p><strong>Objective</strong><br>Create a simple system for organizing project tasks and making progress easy to review.</p>
+    <div class="case-points">
+     <div class="case-point"><strong>Planning</strong><span>Break work into tasks with priorities, owners, statuses, and progress.</span></div>
+     <div class="case-point"><strong>Tracking</strong><span>Use a consistent tracker to review tasks and identify next actions.</span></div>
+     <div class="case-point"><strong>Deliverable</strong><span>Task tracker, ideas list, timeline, and auto-calculated dashboard.</span></div>
+     <div class="case-point"><strong>Next step</strong><span>Confirm the real brief, deliverables, owners, and dates before publication.</span></div>
+    </div>
+   </div>
+  </article>
+
+  <article class="case-study">
+   <div><div class="eyebrow">Case study 02</div><h3>Abaya Brand</h3><p>Content planning and launch coordination</p><div class="tags"><span class="tag">Content planning</span><span class="tag">Coordination</span><span class="tag">Metrics</span></div></div>
+   <div>
+    <p><strong>Objective</strong><br>Organize early content and brand introduction activities for a small abaya brand.</p>
+    <div class="case-points">
+     <div class="case-point"><strong>My contribution</strong><span>Video ideas, writing, filming coordination and filming, editing, page management, posting, and planning next steps.</span></div>
+     <div class="case-point"><strong>Brand introduction video</strong><span>2,093 views · 62 likes · 49 comments · 10 shares.</span></div>
+     <div class="case-point"><strong>Brand name video</strong><span>882 views · 55 likes · 13 comments · 18 shares.</span></div>
+     <div class="case-point"><strong>Next steps</strong><span>Review the logo video and coordinate fabric, tailor, pattern, and first-product production.</span></div>
+    </div>
+    <div class="note">Metrics reflect the figures recorded for this project. Refresh them from the platform before publishing.</div>
+   </div>
+  </article>
+ </div>
+</section>
+
+<section id="about" class="soft">
+ <div class="wrap">
+  <div class="section-title"><div class="eyebrow">About me</div><h2>Structured, curious, dependable.</h2><p>I’m developing my career in project coordination and operations, supported by a Business Administration background and practical project work.</p></div>
+  <div class="grid3">
+   <article class="card"><div class="eyebrow">01 / Plan</div><h3>Break work into steps</h3><p>Organize goals into tasks, priorities, owners, and deadlines.</p></article>
+   <article class="card"><div class="eyebrow">02 / Coordinate</div><h3>Keep work moving</h3><p>Track updates, reviews, open tasks, and upcoming actions.</p></article>
+   <article class="card"><div class="eyebrow">03 / Report</div><h3>Make progress visible</h3><p>Use simple trackers and summaries to communicate project status.</p></article>
+  </div>
+  <h3 class="serif" style="font-size:1.5rem;margin-top:32px">Skills & tools</h3>
+  <div class="tags">
+   <span class="tag">Project Coordination</span><span class="tag">Task Tracking</span><span class="tag">Project Planning</span><span class="tag">Google Sheets</span><span class="tag">Microsoft Excel</span><span class="tag">Documentation</span><span class="tag">Content Coordination</span><span class="tag">Time Management</span><span class="tag">Business Administration</span>
+  </div>
+ </div>
+</section>
+
+<section id="contact">
+ <div class="wrap">
+  <div class="contact">
+   <div><div class="eyebrow" style="color:#e9cbd3">Open to opportunities</div><h2>Let’s organize good work.</h2><p>I’m interested in entry-level roles in Project Coordination, Project Assistance, Operations, and Administrative Support.</p><p><strong>Email:</strong> shhdai563@gmail.com</p></div>
+   <div style="display:flex;gap:10px;flex-wrap:wrap">
+    <a class="btn btn-light" href="mailto:shhdai563@gmail.com?subject=Project%20Coordination%20Opportunity">Email me ↗</a>
+
+   </div>
+  </div>
+ </div>
+</section>
+</main>
+
+<footer class="wrap"><span>© <span id="year"></span> Shahd Ali · Project Coordination Portfolio</span></footer>
+
+<script>
+const projects = {
+ banana: {
+  title:"Banana Peal",
+  subtitle:"Planning case study · illustrative details pending confirmation",
+  tasks:[
+   {id:"BP-01",task:"Confirm project scope and success criteria",owner:"Shahd",priority:"High",due:"To be confirmed",status:"In progress",progress:70,notes:"Confirm actual project brief and expected deliverables."},
+   {id:"BP-02",task:"Build task tracker and status workflow",owner:"Shahd",priority:"High",due:"To be confirmed",status:"Completed",progress:100,notes:"Set up task, owner, priority, status, and progress fields."},
+   {id:"BP-03",task:"Confirm timeline and dependencies",owner:"Shahd",priority:"Medium",due:"To be confirmed",status:"In progress",progress:50,notes:"Replace placeholder timing with verified dates."},
+   {id:"BP-04",task:"Review deliverables and prepare status summary",owner:"Shahd",priority:"Medium",due:"To be confirmed",status:"Not started",progress:0,notes:"Define review criteria once the project scope is confirmed."}
+  ],
+  ideas:[
+   {id:"BI-01",title:"Project overview",purpose:"Explain the project goal and context.",priority:"High",status:"Planned"},
+   {id:"BI-02",title:"Progress updates",purpose:"Share milestones, blockers, and next steps.",priority:"Medium",status:"Planned"},
+   {id:"BI-03",title:"Weekly status summary",purpose:"Summarize completed work and outstanding tasks.",priority:"Medium",status:"Planned"}
+  ],
+  timeline:[
+   {date:"To be confirmed",title:"Confirm project brief",detail:"Agree on scope, deliverables, and success criteria.",status:"In progress"},
+   {date:"To be confirmed",title:"Set up tracker",detail:"Organize tasks, owners, priorities, and statuses.",status:"Completed"},
+   {date:"To be confirmed",title:"Confirm timeline",detail:"Add milestones and dependencies based on real requirements.",status:"In progress"},
+   {date:"To be confirmed",title:"Review and report",detail:"Summarize progress and next actions.",status:"Not started"}
+  ]
+ },
+ abaya:{
+  title:"Abaya Brand — Content & Launch",
+  subtitle:"Content coordination · based on recorded project notes",
+  tasks:[
+   {id:"AB-01",task:"Plan brand introduction video",owner:"Shahd",priority:"High",due:"10 Jul 2026",status:"Completed",progress:100,notes:"Recorded metrics: 2,093 views, 62 likes, 49 comments, 10 shares."},
+   {id:"AB-02",task:"Prepare brand name video",owner:"Shahd",priority:"High",due:"10 Oct 2026",status:"Completed",progress:100,notes:"Recorded metrics: 882 views, 55 likes, 13 comments, 18 shares. Confirm publication status."},
+   {id:"AB-03",task:"Review logo video before publishing",owner:"Alaa",priority:"High",due:"20 Oct 2026",status:"In progress",progress:60,notes:"Review brand identity and obtain approval before publishing."},
+   {id:"AB-04",task:"Coordinate fabric, tailor, pattern, and first product",owner:"To be confirmed",priority:"Medium",due:"To be confirmed",status:"Not started",progress:0,notes:"Split into individual tasks after owners and dates are agreed."}
+  ],
+  ideas:[
+   {id:"AI-01",title:"Fabric selection behind the scenes",purpose:"Show the process of choosing materials.",priority:"High",status:"Planned"},
+   {id:"AI-02",title:"From sketch to finished abaya",purpose:"Document the production journey.",priority:"High",status:"Planned"},
+   {id:"AI-03",title:"Style one abaya three ways",purpose:"Share useful styling ideas.",priority:"Medium",status:"Planned"},
+   {id:"AI-04",title:"Details that matter",purpose:"Highlight fabric, stitching, fit, and finishing.",priority:"Medium",status:"Planned"},
+   {id:"AI-05",title:"Customer FAQs",purpose:"Answer common questions from interested customers.",priority:"Medium",status:"Planned"}
+  ],
+  timeline:[
+   {date:"10 Jul 2026",title:"Brand introduction video",detail:"Recorded as completed; performance figures captured.",status:"Completed"},
+   {date:"10 Oct 2026",title:"Brand name video",detail:"Recorded as completed; confirm exact publishing status.",status:"Completed"},
+   {date:"20 Oct 2026",title:"Logo video review",detail:"Review visual identity and approve before publishing.",status:"In progress"},
+   {date:"To be confirmed",title:"Fabric and production coordination",detail:"Confirm material, tailor, pattern, responsibilities, and dates.",status:"Not started"}
+  ]
+ }
+};
+
+let projectKey="banana", viewKey="tasks", searchText="";
+const el=id=>document.getElementById(id);
+const esc=value=>String(value??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function openProject(key){
+ projectKey=key; searchText="";
+ el("projectSelect").value=key;
+ el("projectTitle").textContent=projects[key].title;
+ el("projectSubtitle").textContent=projects[key].subtitle;
+ render();
+}
+function showView(key){
+ viewKey=key;
+ document.querySelectorAll(".tab").forEach(b=>b.classList.toggle("active",b.dataset.view===key));
+ render();
+}
+function pill(status){
+ const cls=status.toLowerCase().replace(/\s+/g,"-");
+ return `<span class="pill ${cls}">${esc(status)}</span>`;
+}
+function metrics(){
+ const tasks=projects[projectKey].tasks, total=tasks.length;
+ const completed=tasks.filter(t=>t.status==="Completed").length;
+ const active=tasks.filter(t=>t.status==="In progress").length;
+ const notStarted=tasks.filter(t=>t.status==="Not started").length;
+ const avg=total?Math.round(tasks.reduce((a,t)=>a+(Number(t.progress)||0),0)/total):0;
+ const completion=total?Math.round(completed/total*100):0;
+ return {total,completed,active,notStarted,avg,completion};
+}
+function render(){
+ const project=projects[projectKey], root=el("viewContent");
+ if(viewKey==="tasks"){
+  const tasks=project.tasks.filter(t=>(t.id+" "+t.task+" "+t.owner+" "+t.status).toLowerCase().includes(searchText.toLowerCase()));
+  root.innerHTML=`<div class="toolbar"><div><strong>Task Tracker</strong><div class="small">Task owners, priority, due dates, status, and progress.</div></div><input id="searchTasks" placeholder="Search tasks..." value="${esc(searchText)}"></div>
+  <div class="table-wrap"><table><thead><tr><th>ID</th><th>Task</th><th>Owner</th><th>Priority</th><th>Due date</th><th>Status</th><th>Progress</th><th>Notes</th></tr></thead><tbody>
+  ${tasks.map(t=>`<tr><td>${esc(t.id)}</td><td><strong>${esc(t.task)}</strong></td><td>${esc(t.owner)}</td><td>${esc(t.priority)}</td><td>${esc(t.due)}</td><td>${pill(t.status)}</td><td>${Number(t.progress)||0}%<div class="progress"><span style="width:${Math.max(0,Math.min(100,Number(t.progress)||0))}%"></span></div></td><td>${esc(t.notes)}</td></tr>`).join("")||'<tr><td colspan="8">No matching tasks.</td></tr>'}
+  </tbody></table></div>`;
+  el("searchTasks").addEventListener("input",e=>{
+   searchText=e.target.value; const position=searchText.length; render();
+   el("searchTasks").focus(); el("searchTasks").setSelectionRange(position,position);
+  });
+ } else if(viewKey==="ideas"){
+  root.innerHTML=`<div class="toolbar"><div><strong>Content Ideas</strong><div class="small">Ideas are proposals; confirm timing and ownership with the project team.</div></div></div><div class="grid3">${project.ideas.map(i=>`<article class="card idea"><div class="eyebrow">${esc(i.id)}</div><h4>${esc(i.title)}</h4><p>${esc(i.purpose)}</p><div class="tags"><span class="tag">${esc(i.priority)} priority</span><span class="tag">${esc(i.status)}</span></div></article>`).join("")}</div>`;
+ } else if(viewKey==="timeline"){
+  root.innerHTML=`<div class="toolbar"><div><strong>Timeline & Milestones</strong><div class="small">“To be confirmed” means the date has not been verified.</div></div></div><div class="timeline">${project.timeline.map(m=>`<div class="milestone"><div class="small">${esc(m.date)} · ${pill(m.status)}</div><h4>${esc(m.title)}</h4><div class="muted">${esc(m.detail)}</div></div>`).join("")}</div>`;
+ } else {
+  const m=metrics();
+  root.innerHTML=`<div class="toolbar"><div><strong>Project Dashboard</strong><div class="small">Calculated automatically from the current task list.</div></div><span class="badge">Auto-calculated</span></div>
+  <div class="stats">
+   <div class="stat"><span>Total tasks</span><strong>${m.total}</strong></div>
+   <div class="stat"><span>Completed</span><strong>${m.completed}</strong></div>
+   <div class="stat"><span>In progress</span><strong>${m.active}</strong></div>
+   <div class="stat"><span>Not started</span><strong>${m.notStarted}</strong></div>
+  </div>
+  <div class="stat" style="margin-top:12px"><span>Average task progress</span><strong>${m.avg}%</strong><div class="progress"><span style="width:${m.avg}%"></span></div><div class="small">Average of the progress values assigned to individual tasks.</div></div>
+  <div class="stat" style="margin-top:12px"><span>Tasks completed</span><strong>${m.completion}%</strong><div class="progress"><span style="width:${m.completion}%"></span></div><div class="small">Completed tasks divided by total tasks.</div></div>
+  <div class="note">${projectKey==="banana"?"Banana Peal still has illustrative entries. Confirm the actual brief, tasks, owners, and dates before presenting it as a real project.":"Refresh social metrics and confirm publishing statuses before sharing the case study."}</div>`;
+ }
+}
+el("year").textContent=new Date().getFullYear();
+openProject("banana");
+</script>
+</body>
+</html>
